@@ -33,6 +33,7 @@ const PostsUsername = styled.div`
 `
 
 function filtersPosts(arr, value) {
+	value = value.trim()
 	if (value === '') {
 		return arr
 	} else {
@@ -41,8 +42,10 @@ function filtersPosts(arr, value) {
 			const filterByName = el.user.name.toLowerCase().includes(value.toLowerCase())
 			const filterByBody = el.body.toLowerCase().includes(value.toLowerCase())
 			const filterByTitle = el.title.toLowerCase().includes(value.toLowerCase())
-			if (filterByUsername || filterByName || filterByBody || filterByTitle) return el
-			else return false
+			if (filterByUsername || filterByName || filterByBody || filterByTitle) 
+				return el
+			else 
+				return false
 		})
 		return resultFilters
 	}
